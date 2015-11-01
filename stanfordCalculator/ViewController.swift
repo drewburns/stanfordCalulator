@@ -11,11 +11,25 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var stackDisplay: UILabel!
     var userIsTyping = false
+    var hasUsedDecimal = false
+    let pi = M_PI
+    @IBOutlet weak var decimal: UIButton!
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
-        if userIsTyping {
+        if userIsTyping && hasUsedDecimal == false && digit == "."{
+            display.text = display.text! + digit
+            hasUsedDecimal = true
+            decimal.enabled = false
+        } else if digit == "Pi" {
+            if userIsTyping {
+                display.text = String(Double(display.text!)! *  pi)
+            } else {
+                display.text = String(pi)
+            }
+        } else if userIsTyping {
             display.text = display.text! + digit
         } else {
             display.text = digit
@@ -24,6 +38,7 @@ class ViewController: UIViewController {
         
     }
     
+
 
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
@@ -36,6 +51,8 @@ class ViewController: UIViewController {
         case "+": performOperation {$0 + $1}
         case "−": performOperation {$1 - $0}
         case "√": singleperformOperation {sqrt($0)}
+        case "Sin": singleperformOperation {sin($0)}
+        case "Cos": singleperformOperation {cos($0)}
         default: break
         }
     }
@@ -54,10 +71,16 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func clear() {
+        stack.removeAll()
+        
+    }
 
     var stack = Array<Double>()
     @IBAction func enter() {
         userIsTyping = false
+        hasUsedDecimal = false
+        decimal.enabled = true
         stack.append(displayValue)
         print(stack)
     }
