@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var stackDisplay: UILabel!
     var userIsTyping = false
     var hasUsedDecimal = false
-    let pi = M_PI
     @IBOutlet weak var decimal: UIButton!
+    var brain = CalculatorBrain()
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -23,12 +23,6 @@ class ViewController: UIViewController {
             display.text = display.text! + digit
             hasUsedDecimal = true
             decimal.enabled = false
-        } else if digit == "Pi" {
-            if userIsTyping {
-                display.text = String(Double(display.text!)! *  pi)
-            } else {
-                display.text = String(pi)
-            }
         } else if userIsTyping {
             display.text = display.text! + digit
         } else {
@@ -41,57 +35,75 @@ class ViewController: UIViewController {
 
 
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
         if userIsTyping {
             enter()
         }
-        switch operation {
-        case "×": performOperation {$0 * $1}
-        case "÷": performOperation {$1 / $0}
-        case "+": performOperation {$0 + $1}
-        case "−": performOperation {$1 - $0}
-        case "√": singleperformOperation {sqrt($0)}
-        case "Sin": singleperformOperation {sin($0)}
-        case "Cos": singleperformOperation {cos($0)}
-        default: break
+        if let operation = sender.currentTitle {
+            if let result = brain.performOperation(operation) {
+                displayValue = result
+            } else {
+                display.text = "nil"
+                brain.clearStack()
+            }
         }
-    }
-    func performOperation(operation: (Double, Double) -> Double ){
-        if stack.count >= 2 {
-            displayValue = operation(stack.removeLast(), stack.removeLast())
-            enter()
-        }
-        
-    }
-    func singleperformOperation(operation: Double -> Double) {
-        
-        if stack.count >= 1 {
-            displayValue = operation(stack.removeLast())
-            enter()
-        }
+
     }
 
     @IBAction func clear() {
-        stack.removeAll()
-        
+        brain.clearStack()
+        displayValue = 0
+        stackDisplay.text = " "
+
     }
 
-    var stack = Array<Double>()
     @IBAction func enter() {
         userIsTyping = false
         hasUsedDecimal = false
         decimal.enabled = true
-        stack.append(displayValue)
-        print(stack)
+        if displayValue != nil {
+            brain.pushOperand(displayValue!)
+            displayValue = NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+        } else {
+            displayValue = nil
+        }
+        
     }
     
-    var displayValue: Double {
+    var displayValue: Double? {
         get {
-            return Double(display.text!)!
+            return NSNumberFormatter().numberFromString(display.text!)?.doubleValue
         }
         set {
-            display.text = "\(newValue)"
+            if (newValue != nil) {
+                let numberFormatter = NSNumberFormatter()
+                numberFormatter.numberStyle = .DecimalStyle
+                numberFormatter.maximumFractionDigits = 10
+                display.text = numberFormatter.stringFromNumber(newValue!)
+            } else {
+                display.text = " "
+            }
             userIsTyping = false
+            stackDisplay.text = brain.runDescription()
+        }
+    }
+    
+    
+    @IBAction func pushVariable(sender: UIButton) {
+        if userIsTyping {
+            enter()
+        }
+        if let result = brain.pushOperand(sender.currentTitle!) {
+            displayValue = result
+        } else {
+            displayValue = nil
+        }
+    }
+    
+    @IBAction func storeVariable(sender: UIButton) {
+        if let _ = sender.currentTitle {
+            if displayValue != nil {
+                brain.storeValue("M", value: displayValue! )
+            }
         }
     }
 

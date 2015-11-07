@@ -110,6 +110,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32M-G9-Me5">
                                 <rect key="frame" x="138" y="384" width="102.5" height="72"/>
+                                <state key="normal" title="M"/>
+                                <connections>
+                                    <action selector="pushVariable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6l7-0S-6Ao"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMc-oc-MVY">
                                 <rect key="frame" x="359" y="64" width="102.5" height="72"/>
@@ -155,19 +159,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJx-K5-13F">
                                 <rect key="frame" x="249" y="384" width="102" height="72"/>
+                                <state key="normal" title="--&gt;M"/>
+                                <connections>
+                                    <action selector="storeVariable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OI4-sD-daX"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMz-A3-Qhb">
-                                <rect key="frame" x="28" y="464" width="552" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="yQ7-vx-b9R"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZS-Ym-4HR">
                                 <rect key="frame" x="469.5" y="64" width="102.5" height="72"/>
-                                <state key="normal" title="Pi"/>
+                                <state key="normal" title="π"/>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r2f-YY-fmt"/>
                                 </connections>
@@ -193,6 +192,15 @@
                                     <action selector="clear" destination="BYZ-38-t0r" eventType="touchUpInside" id="ORp-M6-96b"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMz-A3-Qhb">
+                                <rect key="frame" x="28" y="464" width="552" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yQ7-vx-b9R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
