@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var stackDisplay: UILabel!
@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         brain.clearStack()
         displayValue = 0
         stackDisplay.text = " "
+        brain.storeValue("M", value: 0 )
 
     }
 
@@ -104,6 +105,17 @@ class ViewController: UIViewController {
             if displayValue != nil {
                 brain.storeValue("M", value: displayValue! )
             }
+        }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let graphvc = destination as? GraphViewController {
+            graphvc.program = brain.program
+            graphvc.title = "y = \(stackDisplay.text!)"
         }
     }
 

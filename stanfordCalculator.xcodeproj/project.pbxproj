@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		512B86E21BE6D2630065C065 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B86E11BE6D2630065C065 /* CalculatorBrain.swift */; };
 		51788ED21BE55E6C003E41F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51788ED11BE55E6C003E41F5 /* AppDelegate.swift */; };
-		51788ED41BE55E6C003E41F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51788ED31BE55E6C003E41F5 /* ViewController.swift */; };
+		51788ED41BE55E6C003E41F5 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51788ED31BE55E6C003E41F5 /* CalculatorViewController.swift */; };
 		51788ED71BE55E6C003E41F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51788ED51BE55E6C003E41F5 /* Main.storyboard */; };
 		51788EDA1BE55E6C003E41F5 /* stanfordCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51788ED81BE55E6C003E41F5 /* stanfordCalculator.xcdatamodeld */; };
 		51788EDC1BE55E6C003E41F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51788EDB1BE55E6C003E41F5 /* Assets.xcassets */; };
 		51788EDF1BE55E6C003E41F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51788EDD1BE55E6C003E41F5 /* LaunchScreen.storyboard */; };
 		51788EEA1BE55E6C003E41F5 /* stanfordCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51788EE91BE55E6C003E41F5 /* stanfordCalculatorTests.swift */; };
 		51788EF51BE55E6C003E41F5 /* stanfordCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51788EF41BE55E6C003E41F5 /* stanfordCalculatorUITests.swift */; };
+		51AD089A1BF6AEF200C56528 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AD08991BF6AEF200C56528 /* AxesDrawer.swift */; };
+		51AD089E1BF6D8C500C56528 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AD089D1BF6D8C500C56528 /* GraphViewController.swift */; };
+		51AD08A01BF6D9A400C56528 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AD089F1BF6D9A400C56528 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,7 @@
 		512B86E11BE6D2630065C065 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		51788ECE1BE55E6C003E41F5 /* stanfordCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stanfordCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51788ED11BE55E6C003E41F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51788ED31BE55E6C003E41F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		51788ED31BE55E6C003E41F5 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		51788ED61BE55E6C003E41F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51788ED91BE55E6C003E41F5 /* stanfordCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = stanfordCalculator.xcdatamodel; sourceTree = "<group>"; };
 		51788EDB1BE55E6C003E41F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +54,10 @@
 		51788EF01BE55E6C003E41F5 /* stanfordCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stanfordCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51788EF41BE55E6C003E41F5 /* stanfordCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stanfordCalculatorUITests.swift; sourceTree = "<group>"; };
 		51788EF61BE55E6C003E41F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51AD08991BF6AEF200C56528 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
+		51AD089D1BF6D8C500C56528 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		51AD089F1BF6D9A400C56528 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		51DB52141BF974DD000F8305 /* stanfordCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = stanfordCalculator.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +108,15 @@
 		51788ED01BE55E6C003E41F5 /* stanfordCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				51788ED11BE55E6C003E41F5 /* AppDelegate.swift */,
-				51788ED31BE55E6C003E41F5 /* ViewController.swift */,
+				51DB52141BF974DD000F8305 /* stanfordCalculator.entitlements */,
+				51788ED31BE55E6C003E41F5 /* CalculatorViewController.swift */,
 				51788ED51BE55E6C003E41F5 /* Main.storyboard */,
+				51AD089F1BF6D9A400C56528 /* GraphView.swift */,
+				51AD089D1BF6D8C500C56528 /* GraphViewController.swift */,
 				512B86E11BE6D2630065C065 /* CalculatorBrain.swift */,
+				51AD08991BF6AEF200C56528 /* AxesDrawer.swift */,
 				51788EDB1BE55E6C003E41F5 /* Assets.xcassets */,
+				51788ED11BE55E6C003E41F5 /* AppDelegate.swift */,
 				51788EDD1BE55E6C003E41F5 /* LaunchScreen.storyboard */,
 				51788EE01BE55E6C003E41F5 /* Info.plist */,
 				51788ED81BE55E6C003E41F5 /* stanfordCalculator.xcdatamodeld */,
@@ -200,6 +211,11 @@
 					51788ECD1BE55E6C003E41F5 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 9RJ722B5F2;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 					51788EE41BE55E6C003E41F5 = {
 						CreatedOnToolsVersion = 7.1;
@@ -263,8 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51788ED41BE55E6C003E41F5 /* ViewController.swift in Sources */,
+				51788ED41BE55E6C003E41F5 /* CalculatorViewController.swift in Sources */,
 				51788EDA1BE55E6C003E41F5 /* stanfordCalculator.xcdatamodeld in Sources */,
+				51AD08A01BF6D9A400C56528 /* GraphView.swift in Sources */,
+				51AD089A1BF6AEF200C56528 /* AxesDrawer.swift in Sources */,
+				51AD089E1BF6D8C500C56528 /* GraphViewController.swift in Sources */,
 				512B86E21BE6D2630065C065 /* CalculatorBrain.swift in Sources */,
 				51788ED21BE55E6C003E41F5 /* AppDelegate.swift in Sources */,
 			);
@@ -412,7 +431,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = stanfordCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = andrewburns.stanfordCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = andrewburns.GraphCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -426,7 +445,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = stanfordCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = andrewburns.stanfordCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = andrewburns.GraphCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

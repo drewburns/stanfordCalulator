@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +17,63 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-aa-F52">
+                                <rect key="frame" x="0.0" y="121" width="600" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="IiU-Ym-Wzg"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Graphing Calculator">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="28" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Andrew Burns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSe-Ul-Hdx">
+                                <rect key="frame" x="234" y="162" width="132" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4Jk-XV-o5K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.34597082870750984" green="0.71362343838714093" blue="0.76603929924242431" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calc" translatesAutoresizingMaskIntoConstraints="NO" id="wBp-1d-wVa">
+                                <rect key="frame" x="181" y="214" width="239" height="285"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="239" id="vE5-nf-8yD"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xjj-aa-F52" firstAttribute="centerX" secondItem="jSe-Ul-Hdx" secondAttribute="centerX" id="0ce-jR-0Af"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wBp-1d-wVa" secondAttribute="bottom" constant="101" id="2XK-Ap-BBl"/>
+                            <constraint firstAttribute="trailing" secondItem="xjj-aa-F52" secondAttribute="trailing" id="2yl-ah-ZmZ"/>
+                            <constraint firstItem="wBp-1d-wVa" firstAttribute="top" secondItem="jSe-Ul-Hdx" secondAttribute="bottom" constant="31" id="AlJ-fN-Aqj"/>
+                            <constraint firstItem="xjj-aa-F52" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" id="CeA-dT-Adr"/>
+                            <constraint firstItem="xjj-aa-F52" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="101" id="D56-Pw-iEi"/>
+                            <constraint firstItem="jSe-Ul-Hdx" firstAttribute="centerX" secondItem="wBp-1d-wVa" secondAttribute="centerX" id="IYa-Xb-axo"/>
+                            <constraint firstItem="xjj-aa-F52" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Rwm-LC-6Az"/>
+                            <constraint firstItem="jSe-Ul-Hdx" firstAttribute="top" secondItem="xjj-aa-F52" secondAttribute="bottom" constant="8" symbolic="YES" id="Vwa-CV-VkO"/>
+                            <constraint firstItem="jSe-Ul-Hdx" firstAttribute="top" secondItem="xjj-aa-F52" secondAttribute="bottom" constant="8" id="WPb-mI-iKv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jSe-Ul-Hdx" secondAttribute="trailing" constant="214" id="jrg-tG-6EA"/>
+                            <constraint firstItem="jSe-Ul-Hdx" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="214" id="uje-BR-rRc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CeA-dT-Adr"/>
+                                <exclude reference="WPb-mI-iKv"/>
+                                <exclude reference="jrg-tG-6EA"/>
+                                <exclude reference="uje-BR-rRc"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +81,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calc" width="300" height="300"/>
+    </resources>
 </document>

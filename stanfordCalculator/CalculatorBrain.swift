@@ -26,7 +26,7 @@ class CalculatorBrain {
                 case .UnaryOperation(let symbol , _):
                     return symbol
                 case .Variable(let variable):
-                    return "\(variable)"
+                    return variable
                 }
             }
             
@@ -39,28 +39,36 @@ class CalculatorBrain {
     var variableValues = [String: Double]()
     
     init() {
+        variableValues["M"] = 0
         knownOps["×"] = Op.BinaryOperation("×", *)
         knownOps["+"] = Op.BinaryOperation("+", +)
         knownOps["−"] = Op.BinaryOperation("−", {$1 - $0} )
         knownOps["÷"] = Op.BinaryOperation("÷", {$1 / $0} )
         knownOps["√"] = Op.UnaryOperation("√", sqrt)
+        knownOps["Sin"] = Op.UnaryOperation("Sin", sin )
+        knownOps["Cos"] = Op.UnaryOperation("Cos", cos )
+        knownOps["Tan"] = Op.UnaryOperation("Tan", tan )
     
     }
     
 
     typealias PropertyList = AnyObject
-    var program: PropertyList {
+    var program: PropertyList { // guaranteed to be a property list
         get {
-            return opStack.map {$0.description}
+            return opStack.map{ $0.description }
         }
         set {
             if let opSymbols = newValue as? Array<String> {
                 var newOpStack = [Op]()
+                let numberFormatter = NSNumberFormatter()
+                //numberFormatter.locale = NSLocale(localeIdentifier: "en_US")
                 for opSymbol in opSymbols {
-                    if let opSymbol = knownOps[opSymbol] {
-                        newOpStack.append(opSymbol)
-                    } else if let operand = NSNumberFormatter().numberFromString(opSymbol)?.doubleValue {
+                    if let op = knownOps[opSymbol] {
+                        newOpStack.append(op)
+                    } else if let operand = numberFormatter.numberFromString(opSymbol)?.doubleValue {
                         newOpStack.append(.Operand(operand))
+                    } else {
+                        newOpStack.append(.Variable(opSymbol))
                     }
                 }
                 opStack = newOpStack
@@ -90,10 +98,9 @@ class CalculatorBrain {
                 }
             case .Variable(let symbol):
                 if let variable = variableValues[symbol] {
-                    return(variable, remainingOps)
-                } else {
-                    return(nil, remainingOps)
+                    return (variableValues[symbol], remainingOps)
                 }
+                return (nil, remainingOps)
             
             }
         }
@@ -117,7 +124,6 @@ class CalculatorBrain {
                     let operandEval2 = description(operandEval1.remainingOps)
                     if var operand2 = operandEval2.result {
                         operand2 = "\(operand2)"
-                        print("\(operand2) \(symbol) \(operand1)")
                         return ("(\(operand2) \(symbol) \(operand1))",
                             operandEval2.remainingOps)
                     }
@@ -127,7 +133,6 @@ class CalculatorBrain {
                     let operandEvaluation = description(remainingOps)
                     if var operand = operandEvaluation.result {
                         operand = "(\(operand))"
-                        print("\(symbol) \(operand)")
                         return ("\(symbol) \(operand)" , remainingOps)
                     }
             }
@@ -136,8 +141,7 @@ class CalculatorBrain {
     }
 
     func evaluate() -> Double? {
-        let(result, remainder)  = evaluate(opStack)
-        print("\(opStack) = \(result) with \(remainder) left over")
+        let(result, _)  = evaluate(opStack)
         return result
     }
     
@@ -169,6 +173,14 @@ class CalculatorBrain {
     func runDescription() -> String {
         let history = description(opStack)
         return history.result!
+    }
+    
+    func y(x:Double) -> Double? {
+        variableValues["M"] = x
+        if let y = evaluate() {
+            return y
+        }
+        return nil
     }
     
     
